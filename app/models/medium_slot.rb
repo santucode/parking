@@ -1,0 +1,2 @@
+class MediumSlot < ApplicationRecord
+end

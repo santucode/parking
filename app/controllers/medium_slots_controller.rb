@@ -1,0 +1,2 @@
+class MediumSlotsController < ApplicationController
+end

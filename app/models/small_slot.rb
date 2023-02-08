@@ -1,0 +1,2 @@
+class SmallSlot < ApplicationRecord
+end

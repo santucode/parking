@@ -1,0 +1,2 @@
+module SmallSlotsHelper
+end

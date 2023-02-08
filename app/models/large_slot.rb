@@ -1,0 +1,2 @@
+class LargeSlot < ApplicationRecord
+end

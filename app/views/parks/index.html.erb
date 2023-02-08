@@ -1,0 +1,26 @@
+<div class="">
+<h1> SMALL CAR PARKING SLOT </h1>
+<% @small_slots.all.each do |sc| %>
+    <%= sc.car_size %>
+<% end %>
+</div>
+
+<div>
+<h1> MEDIUM CAR PARKING SLOT </h1>
+<% @medium_slots.all.each do |mc| %>
+    <%= mc.car_size %>
+<% end %>
+</div>
+
+<div>
+<h1> LARGE CAR PARKING SLOT </h1>
+<% @large_slots.all.each do |lc| %>
+    <%= lc.car_size %>
+<% end %>
+</div>
+
+
+
+
+
+

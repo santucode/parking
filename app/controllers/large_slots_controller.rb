@@ -1,0 +1,2 @@
+class LargeSlotsController < ApplicationController
+end
