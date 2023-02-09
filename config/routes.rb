@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   
   resources :parks
-  resources :small_slots
+  resources :small_slots, :medium_slots, :large_slots
   
 end

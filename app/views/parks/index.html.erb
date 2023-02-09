@@ -1,25 +1,77 @@
-<div class="">
-<h1> SMALL CAR PARKING SLOT </h1>
-<% @small_slots.all.each do |sc| %>
-    <%= sc.car_size %>
-<% end %>
+<div class="d-flex flex-row ">
+    <div class="block1">
+        <div>
+        <h1> SMALL SLOT PARKING </h1>   
+        <div class="d-flex flex-row">
+        <% @small_slots.all.each do |sc| %>
+            <div class="d-flex flex-column">
+            <% if sc.car_size == "small_vehicle" %>
+                <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px" />
+                <span><%= button_to "delete", small_slot_path(sc), method: :delete %></span>
+            <% end %>
+            </div>
+        <% end %>
+        </div>
+        </div>
+
+        <div>
+        <h1> MEDIUM CAR PARKING SLOT </h1>
+        <div class="d-flex flex-row">
+        <% @medium_slots.all.each do |mc| %>
+            <div class="d-flex flex-column">
+            <% if mc.car_size == "medium_vehicle" %>
+                <img src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-yellow-private-car-illustration-image_1409627.jpg", style = "height:250px;width:200px" />
+                <span><%= button_to "delete", medium_slot_path(mc), method: :delete %></span>
+            <% elsif mc.car_size == "small_vehicle" %>
+                <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px" />
+                <span><%= button_to "delete", medium_slot_path(mc), method: :delete %></span>
+            <% end %>
+            </div>
+        <% end %>
+        </div>
+        </div>
+
+        <div>
+        <h1> LARGE CAR PARKING SLOT </h1>
+        <div class="d-flex flex-row">
+        <% @large_slots.all.each do |lc| %>
+            <div class="d-flex flex-column">
+            <% if lc.car_size == "large_vehicle" %>
+                <img src = "https://img.freepik.com/premium-photo/3d-rendering-photo-blue-luxury-suv-car-o-from-top-view-architectural-landscape-planning_696291-1.jpg?w=2000", style = "height:250px;width:300px" />
+                <span><%= button_to "delete", large_slot_path(lc), method: :delete %></span>
+            <% elsif lc.car_size == "medium_vehicle" %>
+                <img src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-yellow-private-car-illustration-image_1409627.jpg", style = "height:250px;width:200px" />
+                <span><%= button_to "delete", large_slot_path(lc), method: :delete %></span>
+            <% elsif lc.car_size == "small_vehicle" %>
+                <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px" />
+                <span><%= button_to "delete", large_slot_path(lc), method: :delete %></span>
+            <% end %>    
+            </div>
+        <% end %>
+        </div>
+        </div>
+    </div>
+
+    <div class="block2">
+    <%= form_with url: "/parks/new", method: :post do |f| %>
+        <div class="mini">
+        <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:80px;width:80px" />
+        <%=  radio_button_tag :car_size, "small_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "Mini" %><br>
+        </div>
+
+        <div class="sedan">
+        <img src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-yellow-private-car-illustration-image_1409627.jpg", style = "height:80px;width:80px" />
+        <%=  radio_button_tag :car_size, "medium_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "Sedan" %><br>
+        </div>
+
+        <div class="suv">
+        <img src = "https://img.freepik.com/premium-photo/3d-rendering-photo-blue-luxury-suv-car-o-from-top-view-architectural-landscape-planning_696291-1.jpg?w=2000", style = "height:80px;width:80px" />
+        <%=  radio_button_tag :car_size, "large_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "SUV" %><br>
+        </div>
+    <% end %>
+    </div>
+
 </div>
-
-<div>
-<h1> MEDIUM CAR PARKING SLOT </h1>
-<% @medium_slots.all.each do |mc| %>
-    <%= mc.car_size %>
-<% end %>
-</div>
-
-<div>
-<h1> LARGE CAR PARKING SLOT </h1>
-<% @large_slots.all.each do |lc| %>
-    <%= lc.car_size %>
-<% end %>
-</div>
-
-
 
 
 

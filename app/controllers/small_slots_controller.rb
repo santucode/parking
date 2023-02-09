@@ -25,6 +25,12 @@ class SmallSlotsController < ApplicationController
         end
     end
 
+    def destroy
+        @small_slot = SmallSlot.find(params[:id])
+        @small_slot.destroy
+        redirect_back(fallback_location: root_path)
+    end
+
     def car_params
         params.permit(:car_size)
     end
