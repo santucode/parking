@@ -30,7 +30,7 @@ class ParksController < ApplicationController
                 flash[:notice] = "Parking alloted in Large Parking Slot"
                 redirect_back(fallback_location: root_path)
             else
-                render :index, status: :unprocessable_entity
+                redirect_back(fallback_location: root_path)
                 flash[:alert] = "No Parking Space"
             end
         elsif car_params.to_h.fetch_values(:car_size) == ["medium_vehicle"]

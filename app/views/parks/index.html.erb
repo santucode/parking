@@ -1,13 +1,13 @@
-<div class="d-flex flex-row ">
+<div class="d-flex flex-row p-3">
     <div class="block1">
         <div>
         <h1> SMALL SLOT PARKING </h1>   
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row parkblk1">
         <% @small_slots.all.each do |sc| %>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column p-3">
             <% if sc.car_size == "small_vehicle" %>
                 <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px" />
-                <span><%= button_to "delete", small_slot_path(sc), method: :delete %></span>
+                <span><%= button_to "Unpark", small_slot_path(sc), method: :delete, style:"margin-left:40px;margin-top:5px" %></span>
             <% end %>
             </div>
         <% end %>
@@ -16,15 +16,15 @@
 
         <div>
         <h1> MEDIUM CAR PARKING SLOT </h1>
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row parkblk2">
         <% @medium_slots.all.each do |mc| %>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column p-3">
             <% if mc.car_size == "medium_vehicle" %>
                 <img src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-yellow-private-car-illustration-image_1409627.jpg", style = "height:250px;width:200px" />
-                <span><%= button_to "delete", medium_slot_path(mc), method: :delete %></span>
+                <span><%= button_to "Unpark", medium_slot_path(mc), method: :delete,style:"margin-left:70px;margin-top:5px" %></span>
             <% elsif mc.car_size == "small_vehicle" %>
-                <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px" />
-                <span><%= button_to "delete", medium_slot_path(mc), method: :delete %></span>
+                <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px;margin-top:40px" />
+                <span><%= button_to "Unpark", medium_slot_path(mc), method: :delete,style:"margin-left:40px;margin-top:60px" %></span>
             <% end %>
             </div>
         <% end %>
@@ -33,18 +33,18 @@
 
         <div>
         <h1> LARGE CAR PARKING SLOT </h1>
-        <div class="d-flex flex-row">
+        <div class="d-flex flex-row parkblk3">
         <% @large_slots.all.each do |lc| %>
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column p-1">
             <% if lc.car_size == "large_vehicle" %>
                 <img src = "https://img.freepik.com/premium-photo/3d-rendering-photo-blue-luxury-suv-car-o-from-top-view-architectural-landscape-planning_696291-1.jpg?w=2000", style = "height:250px;width:300px" />
-                <span><%= button_to "delete", large_slot_path(lc), method: :delete %></span>
+                <span><%= button_to "unpark", large_slot_path(lc), method: :delete, style:"margin-left:110px;margin-top:20px" %></span>
             <% elsif lc.car_size == "medium_vehicle" %>
                 <img src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-yellow-private-car-illustration-image_1409627.jpg", style = "height:250px;width:200px" />
-                <span><%= button_to "delete", large_slot_path(lc), method: :delete %></span>
+                <span><%= button_to "Unpark", large_slot_path(lc), method: :delete, style:"margin-left:70px;margin-top:15px"  %></span>
             <% elsif lc.car_size == "small_vehicle" %>
-                <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px" />
-                <span><%= button_to "delete", large_slot_path(lc), method: :delete %></span>
+                <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:150px;width:150px;margin-top:40px" />
+                <span><%= button_to "Unpark", large_slot_path(lc), method: :delete, style:"margin-left:40px;margin-top:80px" %></span>
             <% end %>    
             </div>
         <% end %>
@@ -55,18 +55,18 @@
     <div class="block2">
     <%= form_with url: "/parks/new", method: :post do |f| %>
         <div class="mini">
-        <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:80px;width:80px" />
-        <%=  radio_button_tag :car_size, "small_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "Mini" %><br>
+        <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:100px;width:100px" />
+        <span style="font-size:28px"> <%=  radio_button_tag :car_size, "small_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "Mini"%> </span><br>
         </div>
 
         <div class="sedan">
-        <img src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-yellow-private-car-illustration-image_1409627.jpg", style = "height:80px;width:80px" />
-        <%=  radio_button_tag :car_size, "medium_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "Sedan" %><br>
+        <img src = "https://png.pngtree.com/element_our/20190602/ourmid/pngtree-yellow-private-car-illustration-image_1409627.jpg", style = "height:100px;width:100px" />
+        <span style="font-size:28px"> <%=  radio_button_tag :car_size, "medium_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "Sedan" %><br> </span>
         </div>
 
         <div class="suv">
-        <img src = "https://img.freepik.com/premium-photo/3d-rendering-photo-blue-luxury-suv-car-o-from-top-view-architectural-landscape-planning_696291-1.jpg?w=2000", style = "height:80px;width:80px" />
-        <%=  radio_button_tag :car_size, "large_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "SUV" %><br>
+        <img src = "https://img.freepik.com/premium-photo/3d-rendering-photo-blue-luxury-suv-car-o-from-top-view-architectural-landscape-planning_696291-1.jpg?w=2000", style = "height:100px;width:100px" />
+        <span style="font-size:28px"> <%=  radio_button_tag :car_size, "large_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "SUV" %><br> </span>
         </div>
     <% end %>
     </div>
