@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "small_slots#index"
 
-  post "/small_slots/new" , to: "small_slots#create" 
-  post "/parks/new" , to: "parks#create" 
+
 
 
   

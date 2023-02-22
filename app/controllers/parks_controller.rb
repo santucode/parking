@@ -7,6 +7,7 @@ class ParksController < ApplicationController
     end
     
     def new
+        @park = Park.new
         @small_slot = SmallSlot.new
         @medium_slot = MediumSlot.new
         @large_slot = LargeSlot.new

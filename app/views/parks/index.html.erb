@@ -53,7 +53,7 @@
     </div>
 
     <div class="block2">
-    <%= form_with url: "/parks/new", method: :post do |f| %>
+    <%= form_with model:@park do |f| %>
         <div class="mini">
         <img src="https://www.kindpng.com/picc/m/79-790507_car-top-yellow-small-car-top-down-hd.png" , style="height:100px;width:100px" />
         <span style="font-size:28px"> <%=  radio_button_tag :car_size, "small_vehicle", false, :onclick => "this.form.submit();" %>&nbsp;<%= "Mini"%> </span><br>
